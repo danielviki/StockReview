@@ -1,4 +1,4 @@
-import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt  # The conventional alias is 'plt'
 import pandas as pd
 import numpy as np
 from datetime import datetime
