@@ -20,10 +20,14 @@ if not api_key:
 ts = TimeSeries(key=api_key, output_format='pandas')
 
 # 获取 NVIDIA 股票过去一年（365天）的日线数据
-data, meta_data = ts.get_daily(symbol='NVDA', outputsize='full')
+symbol = 'NVDA'
+data, meta_data = ts.get_daily(symbol=symbol, outputsize='full')
 
 # 打印数据
 print(data.tail())  # 打印最后几行数据，查看最新的股票数据
 
+# Create data directory if it doesn't exist
+os.makedirs('data', exist_ok=True)
+
 # 如果你需要保存到 CSV 文件中，可以使用以下代码：
-data.to_csv('nvidia_stock_data.csv')
+data.to_csv(f'data/{symbol}_stock_data.csv')

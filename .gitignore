@@ -19,6 +19,7 @@ wheels/
 *.egg-info/
 .installed.cfg
 *.egg
+.pytest_cache/
 
 # Virtual Environment
 venv/
@@ -28,11 +29,15 @@ env/
 *.env
 .env.local
 .env.*.local
+.venv/
 
 # IDE - VSCode
 .vscode/
 *.code-workspace
 .history/
+.idea/
+*.swp
+*.swo
 
 # Project specific
 *.csv
@@ -50,6 +55,9 @@ config.ini
 *.log
 *.sqlite
 *.db
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
 # Distribution / packaging
 .Python
@@ -69,3 +77,24 @@ wheels/
 *.egg-info/
 .installed.cfg
 *.egg
+
+# node_modules
+node_modules/
+.pnp/
+.pnp.js
+
+# Yarn Integrity file
+.yarn-integrity
+
+# dotenv
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env.development
+.env.test
+.env.production
+
+# Data
+backend/data/*.csv
