@@ -29,7 +29,14 @@ async def get_stock_data(
 ):
     try:
         # 构建文件路径
-        file_path = os.path.join(os.path.dirname(__file__), "..", "data", f"{symbol}_stock_data.csv")
+        base_path = os.path.normpath(os.path.join(os.path.dirname(__file__), "..", "data"))
+        file_path = os.path.normpath(os.path.join(base_path, f"{symbol}_stock_data.csv"))
+        
+        # 验证路径是否在允许的目录中
+        if not file_path.startswith(base_path):
+            logger.error(f"非法路径访问尝试: {file_path}")
+            raise HTTPException(status_code=400, detail="非法路径访问")
+        
         logger.debug(f"尝试读取文件: {file_path}")
         
         # 检查文件是否存在
